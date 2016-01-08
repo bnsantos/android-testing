@@ -16,4 +16,8 @@
     <string name="movies_in_theater">In Theater</string>
     <string name="movies_opening">Opening</string>
 
+    <string name="app_explanation">Simple app listing movies powered by </string>
+
+
+
 </resources>
