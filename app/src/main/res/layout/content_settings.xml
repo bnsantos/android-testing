@@ -9,11 +9,27 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".view.MainActivity"
-    tools:showIn="@layout/app_bar_main">
+    tools:context="com.bnsantos.test.support.library.view.SettingsActivity"
+    tools:showIn="@layout/activity_settings">
 
     <TextView
+        android:id="@+id/labelApiKey"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!" />
+        android:text="@string/api_key"/>
+    <EditText
+        android:id="@+id/inputApiKey"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/api_key_hint"
+        android:layout_below="@id/labelApiKey"/>
+
+    <Button
+        android:id="@+id/buttonSave"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/save"
+        android:layout_below="@id/inputApiKey"
+        android:layout_centerHorizontal="true"/>
+
 </RelativeLayout>
