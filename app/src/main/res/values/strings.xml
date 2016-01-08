@@ -12,4 +12,8 @@
     <string name="api_key">Api Key</string>
     <string name="api_key_hint">Put your Api Key here</string>
 
+    <string name="movies">Movies</string>
+    <string name="movies_in_theater">In Theater</string>
+    <string name="movies_opening">Opening</string>
+
 </resources>

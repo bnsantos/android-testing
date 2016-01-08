@@ -12,18 +12,23 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.bnsantos.test.support.library.R;
+import com.bnsantos.test.support.library.model.Mode;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     public static int SETTINGS_REQ_CODE = 111;
+    private DrawerLayout drawer;
+    private Toolbar toolbar;
+    private Mode mode = Mode.IN_THEATER;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        updateTitle();
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
@@ -67,25 +72,29 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
-        // Handle navigation view item clicks here.
         int id = item.getItemId();
-
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
-
-        } else if (id == R.id.nav_slideshow) {
-
-        } else if (id == R.id.nav_manage) {
-
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
-
+        if(id == R.id.in_theater){
+            showMovies(Mode.IN_THEATER);
+        }else if(id == R.id.opening){
+            showMovies(Mode.OPENING);
         }
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    private void showMovies(Mode mode){
+        this.mode = mode;
+        updateTitle();
+    }
+
+    private void updateTitle(){
+        switch (this.mode){
+            case OPENING:
+                this.toolbar.setTitle(R.string.movies_opening);
+                break;
+            default:
+                this.toolbar.setTitle(R.string.movies_in_theater);
+        }
     }
 }
