@@ -9,10 +9,10 @@ import retrofit2.http.Query;
 /**
  * Created by bruno on 08/01/16.
  */
-public interface MovieServices {
-    @GET("/in_theaters.json")
+public interface MovieService {
+    @GET("in_theaters.json")
     Call<MovieResponse> inTheater(@Query("apiKey") String key);
 
-    @GET("/opening.json")
+    @GET("opening.json")
     Call<MovieResponse> opening(@Query("apiKey") String key);
 }

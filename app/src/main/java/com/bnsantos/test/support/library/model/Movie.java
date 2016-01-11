@@ -1,5 +1,7 @@
 package com.bnsantos.test.support.library.model;
 
+import java.util.Date;
+
 /**
  * Created by bruno on 08/01/16.
  */
@@ -8,6 +10,7 @@ public class Movie {
     private String title;
     private int year;
     private String synopsis;
+    private ReleaseDate release_dates;
 
     public String getId() {
         return id;
@@ -39,5 +42,21 @@ public class Movie {
 
     public void setSynopsis(String synopsis) {
         this.synopsis = synopsis;
+    }
+
+    public ReleaseDate getRelease_dates() {
+        return release_dates;
+    }
+
+    public void setRelease_dates(ReleaseDate release_dates) {
+        this.release_dates = release_dates;
+    }
+
+    public Date getTheaterReleaseDate(){
+        if(release_dates!=null&&release_dates.getTheater()!=null){
+            return release_dates.getTheater();
+        }else{
+            return null;
+        }
     }
 }
