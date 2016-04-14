@@ -1,6 +1,7 @@
 package com.bnsantos.test.support.library;
 
 import android.app.Application;
+import android.support.annotation.VisibleForTesting;
 
 import com.bnsantos.test.support.library.network.MovieService;
 import com.google.gson.Gson;
@@ -35,5 +36,10 @@ public class App extends Application {
 
     public MovieService getMovieService() {
         return movieService;
+    }
+
+    @VisibleForTesting
+    public void setMovieService(MovieService service){
+        movieService = service;
     }
 }

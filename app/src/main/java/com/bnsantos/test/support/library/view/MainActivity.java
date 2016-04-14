@@ -62,6 +62,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 reloadMovies();
             }
         });
+
+        updateTitle();
+        showMovies(mode);
     }
 
     @Override
